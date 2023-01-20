@@ -3,7 +3,7 @@ import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function CountriesList(props) {
+function CountriesList() {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function CountriesList(props) {
             <div className="list-group">
               <Link
                 className="list-group-item list-group-item-action"
-                to={`/${country.alpha3Code}`}
+                to={`${country.alpha3Code}`}
               >
                 {country.name.official}
               </Link>

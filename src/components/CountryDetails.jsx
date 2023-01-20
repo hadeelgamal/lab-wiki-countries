@@ -3,17 +3,19 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-function CountryDetails(props) {
+function CountryDetails() {
   const [countryDetails, setcountryDetails] = useState(null);
   const { id } = useParams();
-  console.log("useparams:", id);
 
   useEffect(() => {
     axios.get(`https://ih-countries-api.herokuapp.com/countries/${id}`)
         .then(response => {setcountryDetails(response.data)} 
+        
         )
   }, [id])
-
+if(countryDetails === null) {
+    return <p>loading</p>
+}
   return (
     <div>
       <div className="col-7">
